@@ -1,16 +1,21 @@
 import streamlit as st
 import pandas as pd
 
-# First file uploader
-file1 = st.file_uploader("Upload a CSV file", type=["csv"], key="file1")
+st.title("Chai Sales Dashboard")
 
-# Another file uploader
-file2 = st.file_uploader("Upload another CSV file", type=["csv"], key="file2")
+file  = st.file_uploader("UPload your csv file", type=["csv"])
 
-if file1 is not None:
-    df1 = pd.read_csv(file1)
-    st.write("First CSV", df1)
+if file:
+    df = pd.read_csv(file)
+    st.subheader("Data Preview")
+    st.dataframe(df)
 
-if file2 is not None:
-    df2 = pd.read_csv(file2)
-    st.write("Second CSV", df2)
+if file:
+    st.subheader("Summary Stats")
+    st.write(df.describe())
+
+if file:
+    cities = df["City"].unique()
+    selected_city = st.selectbox("Filter by cities", cities)
+    filtered_data = df[df["City"] == selected_city]
+    st.dataframe(filtered_data)
