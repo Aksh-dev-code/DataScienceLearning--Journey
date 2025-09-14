@@ -3,9 +3,10 @@ import pandas as pd
 import joblib
 
 # Load saved model, scaler, and expected columns
-model = joblib.load("knn_heart_model.pkl")
-scaler = joblib.load("heart_scaler.pkl")
-expected_columns = joblib.load("heart_columns.pkl")
+model = joblib.load(r"C:\Users\Avik Maity\OneDrive\Desktop\Learning Journey\DataScienceLearning--Journey\Machine learning\LEC 3\Final project\knn_heart_model.pkl")
+
+scaler = joblib.load(r"C:\Users\Avik Maity\OneDrive\Desktop\Learning Journey\DataScienceLearning--Journey\Machine learning\LEC 3\Final project\scaler.pkl")
+expected_columns = joblib.load(r"C:\Users\Avik Maity\OneDrive\Desktop\Learning Journey\DataScienceLearning--Journey\Machine learning\LEC 3\Final project\columns.pkl")
 
 st.title("Heart Stroke Prediction by akarsh")
 st.markdown("Provide the following details to check your heart stroke risk:")
